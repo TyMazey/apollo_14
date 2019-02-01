@@ -22,4 +22,17 @@ describe Astronaut, type: :model do
       end
     end
   end
+
+  describe 'instance methods' do
+    describe '.all_missions' do
+      it 'should return all missions for an astronaut in alphabetical order' do
+        astro_1 = Astronaut.create(name: "Lance Armstrong", age: 70, job: "Captain")
+        two = astro_1.missions.create(title: "bee", time_in_space: 200)
+        three = astro_1.missions.create(title: "cat", time_in_space: 200)
+        one = astro_1.missions.create(title: "apple", time_in_space: 200)
+
+        expect(astro_1.all_missions).to eq([one, two, three])
+      end
+    end
+  end
 end
