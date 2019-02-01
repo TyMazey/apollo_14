@@ -34,5 +34,16 @@ describe Astronaut, type: :model do
         expect(astro_1.all_missions).to eq([one, two, three])
       end
     end
+
+    describe '.total_time_in_space' do
+      it 'should return the total time in space for an astronaut' do
+        astro_1 = Astronaut.create(name: "Lance Armstrong", age: 70, job: "Captain")
+        two = astro_1.missions.create(title: "bee", time_in_space: 200)
+        three = astro_1.missions.create(title: "cat", time_in_space: 200)
+        one = astro_1.missions.create(title: "apple", time_in_space: 200)
+
+        expect(astro_1.total_time_in_space).to eq(600)
+      end
+    end
   end
 end
