@@ -11,4 +11,15 @@ describe Astronaut, type: :model do
     it { should have_many :astronaut_missions}
     it { should have_many :missions}
   end
+
+  describe 'class methods' do
+    describe '.average_age' do
+      it 'should return average age of all astonauts' do
+        astro_1 = Astronaut.create(name: "Lance Armstrong", age: 70, job: "Captain")
+        astro_2 = Astronaut.create(name: "Buzz Aldren", age: 74, job: "Pilot")
+
+        expect(Astronaut.average_age).to eq(40)
+      end
+    end
+  end
 end
