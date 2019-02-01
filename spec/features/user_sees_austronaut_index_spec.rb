@@ -27,7 +27,7 @@ RSpec.describe 'as a visitor', type: :feature do
 
       visit astronauts_path
 
-      within "statistics" do
+      within ".statistics" do
         expect(page).to have_content(40)
       end
     end
