@@ -31,5 +31,20 @@ RSpec.describe 'as a visitor', type: :feature do
         expect(page).to have_content(40)
       end
     end
+
+    it 'shows all missions alphabeticly for astronauts' do
+      astro_1 = Astronaut.create(name: "Lance Armstrong", age: 70, job: "Captain")
+      astro_1.missions.create(title: "bee", time_in_space: 200)
+      astro_1.missions.create(title: "cat", time_in_space: 200)
+      astro_1.missions.create(title: "apple", time_in_space: 200)
+
+      visit astronauts_path
+
+      within "#astronaut-#{astro_1.id}" do
+        expect(page).to have_content('apple')
+        expect(page).to have_content('bee')
+        expect(page).to have_content('cat')
+      end
+    end
   end
 end
