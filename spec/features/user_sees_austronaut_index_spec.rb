@@ -4,8 +4,8 @@ RSpec.describe 'as a visitor', type: :feature do
 
   describe 'when user visits the index page' do
     it 'shows all astronauts and basic info about them' do
-      astro_1 = Asronaut.create(name: "Lance Armstrong", age: 70, job: "Captain")
-      astro_2 = Asronaut.create(name: "Buzz Aldren", age: 74, job: "Pilot")
+      astro_1 = Astronaut.create(name: "Lance Armstrong", age: 70, job: "Captain")
+      astro_2 = Astronaut.create(name: "Buzz Aldren", age: 74, job: "Pilot")
 
       visit astronauts_path
 
